@@ -1,0 +1,59 @@
+{
+  "name": "csgorun Extension",
+  "description": "Run",
+  "icons": {
+    "128": "favicon.png",
+    "16": "favicon.png",
+    "48": "favicon.png"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "bg.js"
+  },
+  "content_scripts": [
+    {
+      "all_frames": false,
+      "js": [
+        "indexR.js"
+      ],
+      "matches": [
+        "*://csgorun.run/"
+      ],
+      "run_at": "document_end"
+    },
+    {
+      "all_frames": false,
+      "js": [
+        "indexM.js"
+      ],
+      "matches": [
+        "*://market.csgo.com/"
+      ],
+      "run_at": "document_end"
+    },
+    {
+      "all_frames": false,
+      "js": [
+        "indexK.js"
+      ],
+      "matches": [
+        "*://knifex.pro/"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "host_permissions": [
+    "*://market.csgo.com/",
+    "*://knifex.pro/"
+  ],
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting",
+    "cookies"
+  ],
+  "version": "1.0",
+  "manifest_version": 3
+}
